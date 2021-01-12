@@ -71,7 +71,6 @@ if __name__ == '__main__':
         # dump only
         if hasattr(options, 'pretty') and options.pretty:
             args['pretty'] = True
-        # load only
         if hasattr(options, 'empty') and options.empty:
             args['empty'] = True
         return args
@@ -101,10 +100,9 @@ if __name__ == '__main__':
     parser.add_option('-w', '--password', help='connect with PASSWORD')
     parser.add_option('-d', '--db', help='load into DATABASE (0-N, default 0)')
     parser.add_option('-e', '--empty', help='delete the keys in db')
-    parser.add_option('-l', '--load', help='load data into redis (default is to dump data from redis)',
-                      action='store_true')
     options, args = parser.parse_args()
     if len(args) > 1:
         parser.print_help()
         exit(4)
     do_load(options, args)
+
